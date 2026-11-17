@@ -1,0 +1,262 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #222;
+}
+
+.navbar {
+    background: #111827;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 27px;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+.search {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 40%;
+}
+
+.search input {
+    padding: 12px;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.search button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background: #38bdf8;
+}
+
+.nav-icons button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.hero {
+    min-height: 350px;
+    background: linear-gradient(120deg, #0f172a, #2563eb);
+    display: flex;
+    align-items: center;
+    padding: 50px 8%;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: #38bdf8;
+    color: #111827;
+    padding: 13px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.categories,
+.products-section {
+    padding: 45px 7%;
+}
+
+.categories h2,
+.products-section h2 {
+    margin-bottom: 25px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.category-list button {
+    border: none;
+    padding: 12px 20px;
+    background: white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.category-list button:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.product-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 12px #00000010;
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #2563eb;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.add-btn {
+    background: #2563eb;
+    color: white;
+    padding: 11px;
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0009;
+    z-index: 10;
+    justify-content: flex-end;
+}
+
+.cart {
+    background: white;
+    width: 400px;
+    max-width: 100%;
+    height: 100%;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.close {
+    float: right;
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.cart h2 {
+    margin-bottom: 25px;
+}
+
+.cart-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item button {
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.checkout {
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    border: none;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+footer {
+    background: #111827;
+    color: white;
+    padding: 35px;
+    text-align: center;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+@media(max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        width: 100%;
+        order: 3;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+}

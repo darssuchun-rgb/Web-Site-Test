@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore | Online Texnika Do'koni</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h2 class="logo"><span>{{ info.brandname }}</span></h2>
+
+        <div class="search">
+            <input type="text" id="searchInput"
+                   placeholder="Texnika qidirish...">
+            <button onclick="searchProducts()">🔍</button>
+        </div>
+
+        <div class="nav-icons">
+            <button onclick="showFavorites()">❤️</button>
+            <button onclick="showCart()">
+                🛒 <span id="cartCount">0</span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>{{ info.reklama }}</h1>
+        <p>{{info.shior}}</p>
+        <a href="#products" class="hero-btn">
+            Xarid qilish
+        </a>
+    </div>
+</section>
+
+<section class="categories">
+    <h2>Kategoriyalar</h2>
+
+    <div class="category-list">
+        <button onclick="filterProducts('all')">Barchasi</button>
+        <button onclick="filterProducts('Telefon')">Telefonlar</button>
+        <button onclick="filterProducts('Noutbuk')">Noutbuklar</button>
+        <button onclick="filterProducts('Televizor')">Televizorlar</button>
+        <button onclick="filterProducts('Aksessuar')">Aksessuarlar</button>
+    </div>
+</section>
+
+<section class="products-section" id="products">
+    <h2>Bizning mahsulotlar</h2>
+
+    <div class="products" id="productList">
+
+        <!-- 1-mahsulot -->
+         {% for mahsulot in mahsulotlar %}
+        <div class="product-card" data-category="Telefon"
+             data-name="iPhone 16 Pro">
+            <img src="{{ mahsulot.image.url }}"
+                 alt="iPhone 16 Pro">
+
+            <button class="favorite-btn"
+                    onclick="toggleFavorite(1)">🤍</button>
+
+            <h3>{{ mahsulot.name }}</h3>
+            <p>Telefon</p>
+
+            <div class="price" data-price="">
+                {{ mahsulot.price }} so'm
+            </div>
+
+            <button class="add-btn" onclick="addToCart(1)">
+                Savatchaga qo'shish
+            </button>
+        </div>
+        {% endfor %}
+
+       
+
+    </div>
+</section>
+
+
+<div class="cart-overlay" id="cartOverlay">
+    <div class="cart">
+        <button class="close" onclick="closeCart()">✖</button>
+        <h2>Savatcha 🛒</h2>
+
+        <div id="cartItems"></div>
+
+        <h3>Jami: <span id="totalPrice">0</span> so'm</h3>
+
+        <button class="checkout" onclick="checkout()">
+            Buyurtma berish
+        </button>
+    </div>
+</div>
+
+<footer>
+    <h2>{{info.brandname}}</h2>
+    <p>© {{ info.c }}</p>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
